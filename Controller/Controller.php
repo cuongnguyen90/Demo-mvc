@@ -13,7 +13,7 @@ if (isset($_GET['action'])){
             include 'view/reader/detail.php';
             break;
         case 'update':
-            $controller->updateReader((object)$_POST);
+            $controller->updateData((object)$_POST);
             header("Location:/demo");
             break;
         case 'add':

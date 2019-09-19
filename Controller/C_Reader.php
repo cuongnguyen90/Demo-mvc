@@ -25,6 +25,12 @@ class C_Reader
         return $this->model->getReader($value);
     }
 
+    public function updateData($value)
+    {
+        return $this->model->updateReader($value);
+
+    }
+
     public function addReader($value)
     {
         return $this->model->addNewReader($value);
