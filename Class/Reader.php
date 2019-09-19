@@ -13,13 +13,13 @@ class Reader
 
    public function __construct($object)
    {
-      $this->id = $object->id;
+      $this->id = isset($object->id) ? $object->id : '';
       $this->code = $object->code;
       $this->name = $object->name;
       $this->email = $object->email;
       $this->phone = $object->phone;
       $this->address = $object->address;
-      $this->images = $object->image;
+      $this->images = isset($object->image) ? $object->image : 'images.png';
    }
 
    /**
@@ -41,10 +41,7 @@ class Reader
    /**
     * @return mixed
     */
-   public function getImage()
-   {
-      return $this->images;
-   }
+
 
    /**
     * @return mixed
@@ -77,6 +74,16 @@ class Reader
    {
       return $this->name;
    }
+
+    /**
+     * @return string
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+
 
 
 

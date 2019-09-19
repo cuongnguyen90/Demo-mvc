@@ -8,7 +8,7 @@
     function checkDelete(object) {
         let data = object.getAttribute('data-id');
         let confirm = document.getElementById('confirm-delete');
-        confirm.href = 'view/reader/delete.php?id='+data;
+        confirm.href = '?action=delete&id='+data;
     }
 
 

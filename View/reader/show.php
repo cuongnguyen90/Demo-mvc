@@ -31,9 +31,9 @@
                      <td><?= $reader->getEmail() ?></td>
                      <td><?= $reader->getAddress() ?></td>
                      <td><?= $reader->getPhone() ?></td>
-                     <td><img src="images/<?= $reader->getImage() ?>" alt="" width="50px"></td>
+                     <td><img src="images/<?= $reader->getImages() ?>" alt="" width="50px"></td>
                      <td>
-                        <a name="" id="" class="btn btn-warning" href="view/reader/detail.php?id=<?=$reader->getId();?>"
+                        <a name="" id="" class="btn btn-warning" href="?action=detail&id=<?=$reader->getId();?>"
                            role="button">Edit</a>
                         <a onclick="checkDelete(this)" data-id="<?=$reader->getId();?>" class="btn btn-danger" data-toggle="modal" href="#modal-confirm">Delete</a>
                      </td>
@@ -53,7 +53,7 @@
                         <h4 class="modal-title">Add New</h4>
                      </div>
                      <div class="modal-body">
-                        <form action="view/reader/add.php" method="post" role="form">
+                        <form action="?action=add" method="post" role="form">
 
                            <div class="form-group">
                               <label for="">Code</label>

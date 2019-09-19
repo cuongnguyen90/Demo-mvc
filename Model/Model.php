@@ -3,29 +3,34 @@ include "DB.php";
 
 class Model
 {
-   private $conn;
+    protected $conn;
 
-   public function __construct()
-   {
-      $db = new DB();
-      $this->conn = $db->connect();
-   }
-   private function prepare()
-   {
+    public function __construct()
+    {
+        $db = new DB();
+        $this->conn = $db->connect();
+    }
 
-   }
-   protected function selectAll($table)
-   {
-      $sql = "SELECT * FROM $table ";
-      $stmt = $this->conn->prepare($sql);
-      $stmt->execute();
-      return $stmt->fetchAll(PDO::FETCH_OBJ);
+    protected function selectAll($sql)
+    {
 
-   }
-   protected function delete($table,$column,$value)
-   {
-      $sql = "DELETE FROM $table WHERE $column = $value";
-      $stmt = $this->conn->prepare($sql);
-      $stmt->execute();
-   }
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+
+    }
+
+    protected function queryItem($sql)
+    {
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+    }
+
+    protected function getItem($sql)
+    {
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_OBJ);
+    }
+
 }
